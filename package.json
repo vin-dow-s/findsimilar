@@ -1,0 +1,36 @@
+{
+  "name": "findsimilar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "clsx": "^2.1.1",
+    "eslint-plugin-readable-tailwind": "^2.0.0",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "next": "15.2.4",
+    "openai": "^4.91.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.1.0",
+    "typescript-eslint": "^8.29.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.3",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "eslint": "^9.24.0",
+    "eslint-config-next": "15.2.4",
+    "tailwindcss": "^4.1.3",
+    "typescript": "^5.8.3"
+  }
+}

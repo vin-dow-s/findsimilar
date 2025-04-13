@@ -1,5 +1,22 @@
 @import 'tailwindcss';
 
+:root {
+    /* Books – purple Theme */
+    --primary-color-books: #9810fa;
+    /* purple-500 */
+    --dot-color-books: #9810fab3;
+
+    /* Games – Orange Theme */
+    --primary-color-games: #f54900;
+    /* orange-600 */
+    --dot-color-games: #f54900b3;
+
+    /* Movies – Example */
+    --primary-color-movies: #009966;
+    /* lime-500 */
+    --dot-color-movies: #009966b3;
+}
+
 html {
     height: 100%;
     min-height: 100dvh;
@@ -14,14 +31,27 @@ body {
     font-family: var(--font-inter, Arial, sans-serif);
 }
 
-.lobster {
-    font-family: var(--font-lobster, Arial, sans-serif);
+.josefin {
+    font-family: var(--font-josefin, Arial, sans-serif);
+}
+
+.lora {
+    font-family: var(--font-lora, Arial, sans-serif);
+}
+
+.poppins {
+    font-family: var(--font-poppins, Arial, sans-serif);
+}
+
+.cinzel {
+    font-family: var(--font-cinzel, Arial, sans-serif);
     font-weight: 400;
     font-style: normal;
 }
 
 /* ✅ Reset global + compat Tailwind 4 */
 @layer base {
+
     *,
     ::after,
     ::before,
@@ -43,48 +73,68 @@ body {
     }
 }
 
-/* 🔄 Animation loading dots */
+/* === BASE DOT === */
 .dot-flashing {
     position: relative;
     width: 10px;
     height: 10px;
-    border-radius: 5px;
-    color: white;
-    animation: dot-flashing 1s infinite linear alternate;
+    border-radius: 50%;
+    background-color: var(--dot-color);
+    animation: dot-flash 1s infinite linear alternate;
     animation-delay: 0.5s;
 }
+
+/* === LEFT + RIGHT DOTS === */
 .dot-flashing::before,
 .dot-flashing::after {
     content: '';
-    display: inline-block;
     position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--dot-color);
     top: 0;
 }
+
 .dot-flashing::before {
     left: -15px;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    color: white;
-    animation: dot-flashing 1s infinite alternate;
+    animation: dot-flash 1s infinite linear alternate;
     animation-delay: 0s;
 }
+
 .dot-flashing::after {
     left: 15px;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    color: white;
-    animation: dot-flashing 1s infinite alternate;
+    animation: dot-flash 1s infinite linear alternate;
     animation-delay: 1s;
 }
 
-@keyframes dot-flashing {
+/* === THEME COLORS === */
+.dot-flashing-books,
+.dot-flashing-books::before,
+.dot-flashing-books::after {
+    --dot-color: var(--dot-color-books, rgba(152, 16, 250, 0.7));
+}
+
+.dot-flashing-games,
+.dot-flashing-games::before,
+.dot-flashing-games::after {
+    --dot-color: var(--dot-color-games, rgba(245, 73, 0, 0.7));
+}
+
+.dot-flashing-movies,
+.dot-flashing-movies::before,
+.dot-flashing-movies::after {
+    --dot-color: var(--dot-color-movies, rgba(0, 153, 102, 0.7));
+}
+
+/* === FLASH EFFECT === */
+@keyframes dot-flash {
     0% {
-        background-color: white;
+        background-color: var(--dot-color);
     }
+
     50%,
     100% {
-        background-color: rgba(152, 128, 255, 0.7);
+        background-color: white;
     }
 }

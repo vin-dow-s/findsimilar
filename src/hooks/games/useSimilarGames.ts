@@ -34,7 +34,7 @@ export const useSimilarGames = (description: string) => {
         description: string,
     ): Promise<string[]> => {
         const response = await fetchWithTimeout(
-            '/api/getThreeSimilarGamesTitles',
+            '/api/games/getThreeSimilarGamesTitles',
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ export const useSimilarGames = (description: string) => {
 
     const fetchGameDetails = async (titles: string[]): Promise<Game[]> => {
         const response = await fetchWithTimeout(
-            '/api/fetchGoogleGames',
+            '/api/games/fetchIGDB',
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -66,8 +66,8 @@ export const useSimilarGames = (description: string) => {
             throw new Error('Fetching similar games details failed')
         }
 
-        const data = (await response.json()) as { items: Game[] }
-        return data.items.slice(0, 3)
+        const data = (await response.json()) as { games: Game[] }
+        return data.games.slice(0, 3)
     }
 
     return { similarGames, loading, error }

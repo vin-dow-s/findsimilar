@@ -18,6 +18,7 @@ export type Game = {
     id: number
     name: string
     summary?: string
+    slug: string
     cover?: {
         url: string
     }
@@ -28,3 +29,14 @@ export type Game = {
         name: string
     }[]
 }
+
+export type Movie = {
+    id: number
+    title: string
+    slug: string
+    overview: string
+    poster_path: string | null
+    release_date: string
+    genre_ids: { id: number; name: string }[]
+}
+

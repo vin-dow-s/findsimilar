@@ -2,43 +2,45 @@ import Footer from '@/components/Footer'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata, Viewport } from 'next'
-import { bubblegum, inter, lobster } from '../../public/fonts/fonts'
+import { poppins, cinzel, inter, lora, josefin } from '../../public/fonts/fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'Find Similar – Smart AI Recommendations',
+    title: 'FindSimilar – Instant Book/Game/Movie Recommendations',
     description:
-        'Instant  recommendations powered by AI. No sign-up. Fast & Free. Just enter a title and get 3 recommendations in seconds.',
+        'Just enter a title you loved and find what you\'ll read/play/watch next. No sign-up. Fast & Free. Powered by AI.',
     keywords: [
+        'AI recommendations',
         'book recommendations',
-        'AI books',
-        'book recs',
+        'movie recommendations',
+        'game recommendations',
         'find similar books',
+        'find similar games',
+        'find similar movies',
         'next read',
-        'similar novels',
+        'next game',
+        'what to watch next',
     ],
     openGraph: {
-        title: 'Find Similar – Smart AI Recommendations',
+        title: 'FindSimilar – Instant Book/Game/Movie Recommendations',
         description:
-            'Find your next obsession in seconds. Enter any book/game/movie title and get 3 similar recommendations, powered by AI.',
-        url: 'https://findsimilar.vercel.app/',
-        siteName: 'Find Similar',
+            'Just enter a title you loved and instantly get 3 AI-powered suggestions. No login required.', url: 'https://findsimilar.vercel.app/',
+        siteName: 'FindSimilar',
         images: [
             {
                 url: 'https://findsimilar.vercel.app/assets/og-image.webp',
                 width: 1200,
                 height: 630,
-                alt: 'Find Similar',
+                alt: 'FindSimilar Hero Image',
             },
         ],
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Find Similar',
+        title: 'FindSimilar',
         description:
-            'Discover 3 similar books/games/movies to any title – instantly. Powered by AI.',
-        creator: '@rayzark',
+            'AI-powered book, game & movie suggestions. Enter any title & get 3 similar ones instantly.', creator: '@rayzark',
         images: ['https://findsimilar.vercel.app/assets/og-image.webp'],
     },
     metadataBase: new URL('https://findsimilar.vercel.app/'),
@@ -61,12 +63,14 @@ export default function RootLayout({
             lang="en"
             className={cn(
                 inter.variable,
-                lobster.variable,
-                bubblegum.variable,
+                lora.variable,
+                poppins.variable,
+                cinzel.variable,
+                josefin.variable,
                 'h-dvh',
             )}
         >
-            <body className="flex min-h-dvh flex-col antialiased">
+            <body className="flex flex-col min-h-dvh antialiased">
                 {children}
                 <Analytics />
                 <Footer />

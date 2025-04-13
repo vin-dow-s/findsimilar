@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     if (
         !description ||
         typeof description !== 'string' ||
-        description.length < 40
+        description.length < 20
     ) {
         return NextResponse.json(
             { error: 'Invalid or too short description' },
@@ -20,24 +20,24 @@ export async function POST(req: Request) {
     })
 
     const prompt = `
-    You're a book recommendation expert.
+    You are a video game expert, specialized in delivering highly relevant and insightful game recommendations.
     
-    Given the following book title or description, suggest **exactly 3 different English-language book titles** that are similar in terms of **themes, writing style, or reader experience** — but **not the same book**. Don't return a book that has the same title, that is VERY IMPORTANT.
+    Given the following game title or description, suggest **exactly 3 different video game titles** that are similar in terms of **gameplay loop, world design, or immersive experience** — but **not the same game**. Don't return a game that has the same title, that is VERY IMPORTANT.
     
     🎯 Focus on:
-    - Core subject matter or philosophical depth
-    - Narrative structure, tone, or voice
-    - Purpose and reader impact (entertainment, learning, reflection)
-    - Genre, setting, or conceptual framing
+    - Core gameplay mechanics
+    - Narrative structure or progression system
+    - Tone, universe, or emotional impact
+    - Player experience (exploration, strategy, action, etc.)
     
     ❌ Avoid:
     - The same title
-    - Books from the same series
-    - Extremely obvious choices unless there's a strong conceptual match
+    - Direct sequels or remasters
+    - Extremely obvious choices unless there’s a strong conceptual match
     
     ⚠️ Format your response as a clean, comma-separated list of 3 titles — no commentary, no numbering, no quotes.
     
-    Book description:
+    Game description:
     ${description}
     `
 
@@ -50,8 +50,8 @@ export async function POST(req: Request) {
             max_tokens: 64,
         })
 
-        const titles =
-            response.choices?.[0]?.message?.content?.trim().split(', ') || []
+        const content = response.choices?.[0]?.message?.content?.trim() || ''
+        const titles = content.split(', ').filter(Boolean)
 
         return NextResponse.json({ titles })
     } catch (error) {

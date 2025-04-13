@@ -1,6 +1,6 @@
 {
-    "name": "Find Similar – Smart AI Recommendations",
-    "short_name": "Find Similar",
+    "name": "FindSimilar – Instant Book/Game/Movie Recommendations",
+    "short_name": "FindSimilar",
     "description": "Find your next obsession in seconds. Enter any book/game/movie title and get 3 similar recommendations, powered by AI.",
     "start_url": "/",
     "display": "standalone",

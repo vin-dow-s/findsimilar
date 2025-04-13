@@ -1,14 +1,14 @@
 import fetchWithTimeout from '@/lib/fetchWithTimeout'
-import { Game } from '@/lib/types'
+import { Movie } from '@/lib/types'
 import { useEffect, useState } from 'react'
 
-export const useGameSuggestions = (gameTitle: string) => {
-    const [suggestions, setSuggestions] = useState<Game[]>([])
+export const useMovieSuggestions = (movieTitle: string) => {
+    const [suggestions, setSuggestions] = useState<Movie[]>([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        if (!gameTitle) {
+        if (!movieTitle) {
             setSuggestions([])
             return
         }
@@ -18,8 +18,8 @@ export const useGameSuggestions = (gameTitle: string) => {
 
             try {
                 const response = await fetchWithTimeout(
-                    `/api/games/fetchGamesSuggestions?title=${encodeURIComponent(
-                        gameTitle,
+                    `/api/movies/fetchMoviesSuggestions?title=${encodeURIComponent(
+                        movieTitle,
                     )}`,
                     {},
                     7000,
@@ -29,11 +29,11 @@ export const useGameSuggestions = (gameTitle: string) => {
                     throw new Error('Failed to fetch suggestions')
                 }
 
-                const data: Game[] = await response.json()
+                const data: Movie[] = await response.json()
                 setSuggestions(data || [])
             } catch (err: unknown) {
                 if (err instanceof Error && err.name !== 'AbortError') {
-                    console.error('Error fetching game suggestions:', err)
+                    console.error('Error fetching movie suggestions:', err)
                     setError(`Failed to fetch suggestions: ${err.message}`)
                 }
             } finally {
@@ -43,7 +43,7 @@ export const useGameSuggestions = (gameTitle: string) => {
 
         const debounceTimeout = setTimeout(fetchSuggestions, 700)
         return () => clearTimeout(debounceTimeout)
-    }, [gameTitle])
+    }, [movieTitle])
 
     return { suggestions, loading, error }
 }

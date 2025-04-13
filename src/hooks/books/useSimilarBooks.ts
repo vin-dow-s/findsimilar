@@ -34,7 +34,7 @@ export const useSimilarBooks = (description: string) => {
         description: string,
     ): Promise<string[]> => {
         const response = await fetchWithTimeout(
-            '/api/getThreeSimilarBooksTitles',
+            '/api/books/getThreeSimilarBooksTitles',
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ export const useSimilarBooks = (description: string) => {
 
     const fetchBookDetails = async (titles: string[]): Promise<Book[]> => {
         const response = await fetchWithTimeout(
-            '/api/fetchGoogleBooks',
+            '/api/books/fetchGoogleBooks',
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

@@ -9,7 +9,7 @@ type Props = {
 
 const SimilarBooks = ({ books }: Props) => {
     return (
-        <div className="mt-4 mb-6 w-full max-w-[1500px]">
+        <div className="mt-4 mb-6 w-full">
             <ul className="flex list-none justify-center max-sm:flex-wrap">
                 {books.map((book) => (
                     <li
@@ -48,11 +48,11 @@ const SimilarBooks = ({ books }: Props) => {
                             <div className="w-full content-center text-center">
                                 <h3 className="mt-4 text-2xl font-semibold">
                                     {book.volumeInfo.title &&
-                                    book.volumeInfo.title?.length > 30
+                                        book.volumeInfo.title?.length > 30
                                         ? book.volumeInfo.title?.substring(
-                                              0,
-                                              30,
-                                          ) + '...'
+                                            0,
+                                            30,
+                                        ) + '...'
                                         : book.volumeInfo?.title}
                                 </h3>
                                 <p className="pt-1 text-base text-gray-400">

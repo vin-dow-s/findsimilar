@@ -9,7 +9,7 @@ type Props = {
 
 const SimilarGames = ({ games }: Props) => {
     return (
-        <div className="mt-4 mb-6 w-full max-w-[1500px]">
+        <div className="mt-4 mb-6 w-full">
             <ul className="flex list-none justify-center max-sm:flex-wrap">
                 {games.map((game) => (
                     <li
@@ -18,7 +18,7 @@ const SimilarGames = ({ games }: Props) => {
                     >
                         <a
                             href={`https://www.igdb.com/games/${encodeURIComponent(
-                                game.name,
+                                game.slug,
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"

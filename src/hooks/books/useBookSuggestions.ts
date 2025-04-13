@@ -18,7 +18,7 @@ export const useBookSuggestions = (bookTitle: string) => {
 
             try {
                 const response = await fetchWithTimeout(
-                    `/api/fetchBooksSuggestions?title=${encodeURIComponent(bookTitle)}`,
+                    `/api/books/fetchBooksSuggestions?title=${encodeURIComponent(bookTitle)}`,
                     {},
                     7000,
                 )

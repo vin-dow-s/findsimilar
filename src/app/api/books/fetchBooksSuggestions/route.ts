@@ -1,4 +1,4 @@
-// src/app/api/fetchBooksSuggestions/route.ts
+// src/app/api/books/fetchBooksSuggestions/route.ts
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {

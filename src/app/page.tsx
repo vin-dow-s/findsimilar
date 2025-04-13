@@ -3,25 +3,25 @@ import Link from 'next/link'
 export default function HomePage() {
     return (
         <main className="flex flex-col flex-1 justify-between items-center w-full min-h-full">
-            <div className="relative flex flex-col justify-start lg:justify-start items-center gap-8 px-4 sm:px-6 lg:px-8 py-2 xl:pt-24 w-full">
+            <div className="relative flex flex-col flex-1 justify-center items-center gap-8 px-4 sm:px-6 lg:px-8 py-2 w-full min-h-full">
                 <h1 className="font-normal text-7xl josefin">FindSimilar</h1>
 
-                <div className="flex sm:flex-row flex-col gap-4">
+                <div className="flex flex-row gap-4">
                     <Link
                         href="/books"
-                        className="content-center bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-md text-white text-lg transition lora"
+                        className="content-center bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-md text-white text-lg transition lora"
                     >
                         Books
                     </Link>
                     <Link
                         href="/games"
-                        className="content-center bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-md text-white transition poppins"
+                        className="content-center bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-md text-white transition poppins"
                     >
                         Games
                     </Link>
                     <Link
                         href="/movies"
-                        className="content-center bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-md text-white transition cinzel"
+                        className="content-center bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-md text-white transition cinzel"
                     >
                         Movies
                     </Link>

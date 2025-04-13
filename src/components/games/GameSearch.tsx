@@ -33,13 +33,13 @@ export default function GameSearch() {
                 : 'justify-start lg:justify-start 2xl:pt-24'
                 } px-4 py-2 sm:px-6 lg:px-8`}
         >
-            <h1 className="mt-12 text-white lg:text-[52px] text-5xl text-center poppins">
+            <h1 className="mt-24 sm:mt-12 text-white lg:text-[52px] text-5xl text-center poppins">
                 <span className="font-bold josefin">FindSimilar</span> <span className="font-normal text-[40px] text-orange-400 lg:text-[50px]">Games</span>
             </h1>
-            <p className="mt-4 max-w-2xl text-gray-400 max-sm:text-base text-lg text-center">
-                No sign-up. Just 3 instant recommendations.            </p>
-
-            <form className="my-12 w-full max-w-lg">
+            <p className="mt-8 sm:mt-4 max-w-2xl text-gray-400 text-sm sm:text-base text-center">
+                No sign-up. Just 3 instant recommendations.
+            </p>
+            <form className="sm:my-12 max-sm:mt-8 w-full max-w-lg">
                 <div className="relative flex items-center w-full max-w-lg">
                     <input
                         type="text"

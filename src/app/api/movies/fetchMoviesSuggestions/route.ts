@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     }
 
     const apiKey = process.env.TMDB_API_CLIENT_KEY
-    const url = `https://www.api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+    const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
         title,
     )}&api_key=${apiKey}&page=1`
 

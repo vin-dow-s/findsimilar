@@ -9,7 +9,7 @@ type Props = {
 
 const SimilarGames = ({ games }: Props) => {
     return (
-        <div className="mt-4 mb-6 w-full">
+        <div className="mt-4 max-sm:mt-16 mb-6 w-full">
             <ul className="flex max-sm:flex-wrap justify-center list-none">
                 {games.map((game) => (
                     <li
@@ -27,7 +27,7 @@ const SimilarGames = ({ games }: Props) => {
                             <div className="relative rounded-sm w-32 h-48 cursor-pointer">
                                 {game.cover ? (
                                     <Image
-                                        src={`https://www.images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.url
+                                        src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.url
                                             .split('/')
                                             .pop()}`}
                                         alt={`Cover of the game ${game.name}`}

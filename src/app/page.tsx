@@ -9,19 +9,19 @@ export default function HomePage() {
                 <div className="flex flex-row gap-4">
                     <Link
                         href="/books"
-                        className="content-center bg-violet-600 hover:bg-violet-700 px-6 py-2 rounded-md text-white text-lg transition lora"
+                        className="content-center bg-violet-600 hover:bg-violet-700 px-6 py-2 rounded-md h-12 text-white text-lg transition lora"
                     >
                         Books
                     </Link>
                     <Link
                         href="/games"
-                        className="content-center bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-md text-white transition poppins"
+                        className="content-center bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-md h-12 text-white transition poppins"
                     >
                         Games
                     </Link>
                     <Link
                         href="/movies"
-                        className="content-center bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-md text-white transition cinzel"
+                        className="content-center bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-md h-12 text-white transition cinzel"
                     >
                         Movies
                     </Link>

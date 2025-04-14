@@ -18,7 +18,7 @@ const SimilarMovies = ({ movies }: Props) => {
     }
 
     return (
-        <div className="mt-4 mb-6 w-full">
+        <div className="mt-4 max-sm:mt-16 mb-6 w-full">
             <ul className="flex max-sm:flex-wrap justify-center list-none">
                 {movies.map((movie) => (
                     <li
@@ -34,7 +34,7 @@ const SimilarMovies = ({ movies }: Props) => {
                             <div className="relative rounded-sm w-32 h-48 cursor-pointer">
                                 {movie.poster_path ? (
                                     <Image
-                                        src={`https://www.image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                         alt={`Cover of the movie ${movie.title}`}
                                         sizes="100vw"
                                         width={0}

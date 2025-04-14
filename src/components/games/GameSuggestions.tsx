@@ -27,7 +27,7 @@ const GameSuggestions = ({ suggestions, onSelect }: Props) => {
                     </div>
                     {suggestion.cover && (
                         <Image
-                            src={`https://www.images.igdb.com/igdb/image/upload/t_cover_big/${suggestion.cover.url
+                            src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${suggestion.cover.url
                                 .split('/')
                                 .pop()}`}
                             alt={`Cover of the game ${suggestion.name}`}

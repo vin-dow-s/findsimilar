@@ -27,7 +27,7 @@ const MovieSuggestions = ({ suggestions, onSelect }: Props) => {
                     </div>
                     {movie.poster_path && (
                         <Image
-                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                            src={`https://www.image.tmdb.org/t/p/w500/${movie.poster_path}`}
                             alt={`Cover of the movie ${movie.title}`}
                             width={32}
                             height={48}

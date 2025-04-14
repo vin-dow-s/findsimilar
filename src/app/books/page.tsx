@@ -11,10 +11,10 @@ export const metadata: Metadata = {
         title: 'FindSimilar Books - Instant AI-Powered Recommendations',
         description:
             'Just enter a book you loved and get 3 similar recommendations. No sign-up. Fast & Free. Powered by AI & Google Books.',
-        url: 'https://findsimilar.vercel.app/books',
+        url: 'https://www.findsimilar.app/books',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/books/findsimilar-books-og.webp',
+                url: 'https://www.findsimilar.app/assets/books/findsimilar-books-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Books OG Image',
@@ -41,7 +41,7 @@ const BooksPage = () => {
                 </p>
             </div>
             <a
-                href="https://books.google.com/"
+                href="https://www.books.google.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="right-4 bottom-4 z-10 fixed opacity-60 hover:opacity-100 fill-white transition-opacity"

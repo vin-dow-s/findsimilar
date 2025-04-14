@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://findsimilar.vercel.app/sitemap.xml
+Sitemap: https://www.findsimilar.app/sitemap.xml

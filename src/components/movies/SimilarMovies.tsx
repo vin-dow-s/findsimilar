@@ -34,7 +34,7 @@ const SimilarMovies = ({ movies }: Props) => {
                             <div className="relative rounded-sm w-32 h-48 cursor-pointer">
                                 {movie.poster_path ? (
                                     <Image
-                                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                        src={`https://www.image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                         alt={`Cover of the movie ${movie.title}`}
                                         sizes="100vw"
                                         width={0}

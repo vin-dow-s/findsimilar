@@ -10,11 +10,11 @@ type Props = {
 
 const GameSuggestions = ({ suggestions, onSelect }: Props) => {
     return (
-        <ul className="absolute top-14 left-0 z-10 w-full rounded-md border border-gray-300 bg-white shadow-lg">
+        <ul className="top-14 left-0 z-10 absolute bg-white shadow-lg border border-gray-300 rounded-md w-full">
             {suggestions.map((suggestion) => (
                 <li
                     key={suggestion.id}
-                    className="flex h-16 cursor-pointer items-center justify-between border-b px-4 py-2 text-black last:border-b-0 hover:bg-gray-100"
+                    className="flex justify-between items-center hover:bg-gray-100 px-4 py-2 border-b last:border-b-0 h-16 text-black cursor-pointer"
                     onMouseDown={() => onSelect(suggestion)}
                 >
                     <div className="flex-1 truncate">
@@ -27,7 +27,7 @@ const GameSuggestions = ({ suggestions, onSelect }: Props) => {
                     </div>
                     {suggestion.cover && (
                         <Image
-                            src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${suggestion.cover.url
+                            src={`https://www.images.igdb.com/igdb/image/upload/t_cover_big/${suggestion.cover.url
                                 .split('/')
                                 .pop()}`}
                             alt={`Cover of the game ${suggestion.name}`}

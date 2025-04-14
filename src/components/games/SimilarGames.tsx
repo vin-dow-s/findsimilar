@@ -10,11 +10,11 @@ type Props = {
 const SimilarGames = ({ games }: Props) => {
     return (
         <div className="mt-4 mb-6 w-full">
-            <ul className="flex list-none justify-center max-sm:flex-wrap">
+            <ul className="flex max-sm:flex-wrap justify-center list-none">
                 {games.map((game) => (
                     <li
                         key={game.id}
-                        className="flex w-full flex-col items-center justify-center gap-2 p-8 max-sm:mb-16 md:w-1/3"
+                        className="flex flex-col justify-center items-center gap-2 max-sm:mb-16 p-8 w-full md:w-1/3"
                     >
                         <a
                             href={`https://www.igdb.com/games/${encodeURIComponent(
@@ -22,12 +22,12 @@ const SimilarGames = ({ games }: Props) => {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex w-full flex-col items-center text-center"
+                            className="flex flex-col items-center w-full text-center"
                         >
-                            <div className="relative h-48 w-32 cursor-pointer rounded-sm">
+                            <div className="relative rounded-sm w-32 h-48 cursor-pointer">
                                 {game.cover ? (
                                     <Image
-                                        src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.url
+                                        src={`https://www.images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.url
                                             .split('/')
                                             .pop()}`}
                                         alt={`Cover of the game ${game.name}`}
@@ -38,21 +38,21 @@ const SimilarGames = ({ games }: Props) => {
                                             width: '100%',
                                             height: '100%',
                                         }}
-                                        className="rounded-sm opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-50"
+                                        className="opacity-100 hover:opacity-50 rounded-sm transition-opacity duration-200 ease-in-out"
                                     />
                                 ) : (
-                                    <div className="flex h-48 w-32 items-center justify-center rounded-sm bg-gray-300">
+                                    <div className="flex justify-center items-center bg-gray-300 rounded-sm w-32 h-48">
                                         No image
                                     </div>
                                 )}
                             </div>
-                            <div className="w-full content-center text-center">
-                                <h3 className="mt-4 text-2xl font-semibold">
+                            <div className="content-center w-full text-center">
+                                <h3 className="mt-4 font-semibold text-2xl">
                                     {game.name && game.name?.length > 30
                                         ? game.name?.substring(0, 30) + '...'
                                         : game.name}
                                 </h3>
-                                <p className="pt-1 text-base text-gray-400">
+                                <p className="pt-1 text-gray-400 text-base">
                                     {game.genres &&
                                         game.genres
                                             .slice(0, 3)
@@ -62,7 +62,7 @@ const SimilarGames = ({ games }: Props) => {
                                             )
                                             .join(', ')}
                                 </p>
-                                <p className="line-clamp-4 pt-6 text-left text-sm text-gray-500">
+                                <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}
                                     {game.summary?.substring(0, 400) ??
                                         'No description available.'}

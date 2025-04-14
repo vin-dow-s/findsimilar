@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     const body = `search "${title}"; fields name, slug, cover.url, genres.name, platforms.name, summary; limit 5;`
 
     try {
-        const res = await fetch('https://api.igdb.com/v4/games', {
+        const res = await fetch('https://www.api.igdb.com/v4/games', {
             method: 'POST',
             headers: {
                 'Client-ID': clientId!,

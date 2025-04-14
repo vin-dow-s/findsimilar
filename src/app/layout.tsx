@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'FindSimilar – Instant Book/Game/Movie Recommendations',
         description:
-            'Just enter a title you loved and instantly get 3 AI-powered suggestions. No login required.', url: 'https://findsimilar.vercel.app/',
+            'Just enter a title you loved and instantly get 3 AI-powered suggestions. No login required.', url: 'https://www.findsimilar.app/',
         siteName: 'FindSimilar',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/findsimilar-og.webp',
+                url: 'https://www.findsimilar.app/assets/findsimilar-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'FindSimilar Hero Image',
@@ -41,11 +41,22 @@ export const metadata: Metadata = {
         title: 'FindSimilar',
         description:
             'AI-powered book, game & movie suggestions. Enter any title & get 3 similar ones instantly.', creator: '@rayzark',
-        images: ['https://findsimilar.vercel.app/assets/findsimilar-og.webp'],
+        images: ['https://www.findsimilar.app/assets/findsimilar-og.webp'],
     },
-    metadataBase: new URL('https://findsimilar.vercel.app/'),
+    metadataBase: new URL('https://www.findsimilar.app'),
     icons: {
         icon: '/icons/favicon.ico',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        }
+    },
+    alternates: {
+        canonical: 'https://www.findsimilar.app',
     },
 }
 
@@ -59,6 +70,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
+
         <html
             lang="en"
             className={cn(

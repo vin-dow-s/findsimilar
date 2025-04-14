@@ -12,10 +12,10 @@ export const metadata: Metadata = {
         title: 'FindSimilar Games - Instant AI-Powered Recommendations',
         description:
             'Just enter a game you loved and get 3 similar recommendations. No sign-up. Fast & Free. Powered by AI & IGDB.',
-        url: 'https://findsimilar.vercel.app/games',
+        url: 'https://www.findsimilar.app/games',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/games/findsimilar-games-og.webp',
+                url: 'https://www.findsimilar.app/assets/games/findsimilar-games-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Games OG Image',

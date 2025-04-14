@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         const movies = await Promise.all(
             titles.map(async (title: string) => {
                 try {
-                    const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+                    const url = `https://www.api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
                         title,
                     )}&api_key=${apiKey}&page=1`
 

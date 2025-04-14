@@ -12,10 +12,10 @@ export const metadata: Metadata = {
         title: 'FindSimilar Movies - Instant AI-Powered Recommendations',
         description:
             'Just enter a movie you loved and get 3 similar recommendations. No sign-up. Fast & Free. Powered by AI & TMDb.',
-        url: 'https://findsimilar.vercel.app/movies',
+        url: 'https://www.findsimilar.app/movies',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/movies/findsimilar-movies-og.webp',
+                url: 'https://www.findsimilar.app/assets/movies/findsimilar-movies-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Movies OG Image',

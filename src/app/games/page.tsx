@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: 'https://findsimilar.vercel.app/games',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/og-games.webp',
+                url: 'https://findsimilar.vercel.app/assets/games/findsimilar-games-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Games OG Image',

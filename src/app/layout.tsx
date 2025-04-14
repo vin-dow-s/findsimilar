@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         siteName: 'FindSimilar',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/og-image.webp',
+                url: 'https://findsimilar.vercel.app/assets/findsimilar-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'FindSimilar Hero Image',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: 'FindSimilar',
         description:
             'AI-powered book, game & movie suggestions. Enter any title & get 3 similar ones instantly.', creator: '@rayzark',
-        images: ['https://findsimilar.vercel.app/assets/og-image.webp'],
+        images: ['https://findsimilar.vercel.app/assets/findsimilar-og.webp'],
     },
     metadataBase: new URL('https://findsimilar.vercel.app/'),
     icons: {

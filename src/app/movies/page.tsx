@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: 'https://findsimilar.vercel.app/movies',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/og-movies.webp',
+                url: 'https://findsimilar.vercel.app/assets/movies/findsimilar-movies-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Movies OG Image',

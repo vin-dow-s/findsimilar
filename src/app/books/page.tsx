@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: 'https://findsimilar.vercel.app/books',
         images: [
             {
-                url: 'https://findsimilar.vercel.app/assets/og-books.webp',
+                url: 'https://findsimilar.vercel.app/assets/books/findsimilar-books-og.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Books OG Image',

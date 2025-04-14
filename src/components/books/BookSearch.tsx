@@ -34,7 +34,7 @@ export default function BookSearch() {
                 } px-4 py-2 sm:px-6 lg:px-8`}
         >
             <h1 className="mt-24 sm:mt-12 text-white lg:text-[52px] text-5xl text-center lora">
-                <span className="font-bold josefin">FindSimilar</span> <span className="text-purple-400">Books</span>
+                <span className="font-bold josefin">FindSimilar</span> <span className="text-violet-400">Books</span>
             </h1>
             <p className="mt-8 sm:mt-4 max-w-2xl text-gray-400 text-sm sm:text-base text-center">
                 No sign-up. Just 3 instant recommendations.
@@ -51,7 +51,7 @@ export default function BookSearch() {
                         }}
                         placeholder="Enter the title of a book..."
                         required
-                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-purple-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-purple-600"
+                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-violet-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-violet-600"
                         onBlur={() => {
                             setTimeout(() => setShowSuggestions(false), 100)
                         }}
@@ -79,7 +79,7 @@ export default function BookSearch() {
                         }}
                         type="submit"
                         disabled={loadingSuggestions || loadingSimilarBooks}
-                        className="relative flex justify-center items-center bg-purple-600 hover:bg-purple-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-purple-600 w-16 h-12 text-white"
+                        className="relative flex justify-center items-center bg-violet-600 hover:bg-violet-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-violet-600 w-16 h-12 text-white"
                     >
                         {loadingSuggestions || loadingSimilarBooks ? (
                             <div className="dot-flashing dot-flashing-books"></div>

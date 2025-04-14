@@ -35,7 +35,7 @@ const BooksPage = () => {
                 <p className="flex md:flex-row flex-col justify-center text-gray-400 text-sm text-center">
                     Help shape the next version
                     <span className="max-md:hidden mx-1"> - </span>
-                    <a href="/feedback" className="text-purple-400 underline">
+                    <a href="/feedback" className="text-violet-400 underline">
                         Get early access & launch offer →
                     </a>
                 </p>

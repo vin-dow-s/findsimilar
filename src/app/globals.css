@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 
 :root {
-    /* Books – purple Theme */
+    /* Books – violet Theme */
     --primary-color-books: #9810fa;
-    /* purple-500 */
+    /* violet-500 */
     --dot-color-books: #9810fab3;
 
     /* Games – Orange Theme */

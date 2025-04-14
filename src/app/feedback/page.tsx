@@ -18,7 +18,7 @@ const FeedbackPage = () => {
             </h1>
             <div className="flex flex-col gap-2 mb-16 text-left">
                 <p className="text-gray-400 text-base sm:text-lg text-left">
-                    <span aria-hidden="true">🛠</span> Let's build the simplest way to get recommendations for books, games & movies
+                    <span aria-hidden="true">🛠</span> Let&apos;s build the simplest way to get recommendations for books, games & movies
                 </p>
                 <p className="text-gray-400 text-base sm:text-lg text-left">
                     <span aria-hidden="true">🚀</span> Get early access & a special launch offer

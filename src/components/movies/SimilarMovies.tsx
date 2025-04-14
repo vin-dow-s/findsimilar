@@ -52,17 +52,15 @@ const SimilarMovies = ({ movies }: Props) => {
                                 )}
                             </div>
                             <div className="content-center w-full text-center">
-                                <h3 className="mt-4 font-semibold text-2xl">
-                                    {movie.title && movie.title?.length > 30
-                                        ? movie.title?.substring(0, 30) + '...'
-                                        : movie.title}
+                                <h3 className="mt-4 font-semibold text-2xl line-clamp-1">
+                                    {movie.title}
                                 </h3>
                                 <p className="pt-1 text-gray-400 text-base">
                                     {movie?.release_date?.substring(0, 4)}
                                 </p>
                                 <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}
-                                    {movie.overview?.substring(0, 400) ??
+                                    {movie.overview ??
                                         'No description available.'}
                                     ... ...
                                 </p>

@@ -46,26 +46,17 @@ const SimilarBooks = ({ books }: Props) => {
                                 )}
                             </div>
                             <div className="content-center w-full text-center">
-                                <h3 className="mt-4 font-semibold text-2xl">
-                                    {book.volumeInfo.title &&
-                                        book.volumeInfo.title?.length > 30
-                                        ? book.volumeInfo.title?.substring(
-                                            0,
-                                            30,
-                                        ) + '...'
-                                        : book.volumeInfo?.title}
+                                <h3 className="mt-4 font-semibold text-2xl line-clamp-1">
+                                    {book.volumeInfo.title}
                                 </h3>
                                 <p className="pt-1 text-gray-400 text-base">
-                                    {book.volumeInfo?.authors?.[0] ||
+                                    {book.volumeInfo?.authors?.[0] ??
                                         'Unknown author'}
                                 </p>
                                 <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}
-                                    {book.volumeInfo.description?.substring(
-                                        0,
-                                        400,
-                                    ) ?? 'No description available.'}
-                                    ... ...
+                                    {book.volumeInfo.description ?? 'No description available.'}
+                                    ...
                                 </p>
                             </div>
                         </a>

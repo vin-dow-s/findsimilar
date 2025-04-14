@@ -47,26 +47,22 @@ const SimilarGames = ({ games }: Props) => {
                                 )}
                             </div>
                             <div className="content-center w-full text-center">
-                                <h3 className="mt-4 font-semibold text-2xl">
-                                    {game.name && game.name?.length > 30
-                                        ? game.name?.substring(0, 30) + '...'
-                                        : game.name}
+                                <h3 className="mt-4 font-semibold text-2xl line-clamp-1">
+                                    {game.name}
                                 </h3>
                                 <p className="pt-1 text-gray-400 text-base">
-                                    {game.genres &&
-                                        game.genres
-                                            .slice(0, 3)
-                                            .map(
-                                                (genre: { name: string }) =>
-                                                    genre.name,
-                                            )
-                                            .join(', ')}
+                                    {game?.genres?.slice(0, 3)
+                                        .map(
+                                            (genre: { name: string }) =>
+                                                genre.name,
+                                        )
+                                        .join(', ')}
                                 </p>
                                 <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}
-                                    {game.summary?.substring(0, 400) ??
+                                    {game.summary ??
                                         'No description available.'}
-                                    ... ...
+                                    ...
                                 </p>
                             </div>
                         </a>

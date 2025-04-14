@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'FindSimilar – Instant Book/Game/Movie Recommendations',
         description:
-            'Just enter a title you loved and instantly get 3 AI-powered suggestions. No login required.', url: 'https://www.findsimilar.app/',
+            'AI-powered book, game & movie recommendations. No sign-up. Fast & Free.Enter any title & get 3 similar ones instantly.',
         siteName: 'FindSimilar',
         images: [
             {

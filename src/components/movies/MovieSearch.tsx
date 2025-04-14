@@ -50,7 +50,7 @@ export default function MovieSearch() {
                         }}
                         placeholder="Enter the title of a movie..."
                         required
-                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-emerald-700 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-emerald-700"
+                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-emerald-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-emerald-600"
                         onBlur={() => {
                             setTimeout(() => setShowSuggestions(false), 100)
                         }}
@@ -78,7 +78,7 @@ export default function MovieSearch() {
                         }}
                         type="submit"
                         disabled={loadingSuggestions || loadingSimilarMovies}
-                        className="relative flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-emerald-700 w-16 h-12 text-white"
+                        className="relative flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-emerald-600 w-16 h-12 text-white"
                     >
                         {loadingSuggestions || loadingSimilarMovies ? (
                             <div className="dot-flashing dot-flashing-movies"></div>

@@ -50,7 +50,7 @@ export default function GameSearch() {
                         }}
                         placeholder="Enter the title of a game..."
                         required
-                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-orange-700 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-orange-700"
+                        className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-orange-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-orange-600"
                         onBlur={() => {
                             setTimeout(() => setShowSuggestions(false), 100)
                         }}
@@ -78,7 +78,7 @@ export default function GameSearch() {
                         }}
                         type="submit"
                         disabled={loadingSuggestions || loadingSimilarGames}
-                        className="relative flex justify-center items-center bg-orange-600 hover:bg-orange-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-orange-700 w-16 h-12 text-white"
+                        className="relative flex justify-center items-center bg-orange-600 hover:bg-orange-700 focus:ring-opacity-50 rounded-r-md focus:outline-hidden focus:ring-2 focus:ring-orange-600 w-16 h-12 text-white"
                     >
                         {loadingSuggestions || loadingSimilarGames ? (
                             <div className="dot-flashing dot-flashing-games"></div>

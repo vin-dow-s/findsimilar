@@ -2,19 +2,19 @@
 
 :root {
     /* Books – violet Theme */
-    --primary-color-books: #9810fa;
+    --primary-color-books: oklch(70.2% 0.183 293.541);
     /* violet-500 */
-    --dot-color-books: #9810fab3;
+    --dot-color-books: #7f22fe;
 
     /* Games – Orange Theme */
-    --primary-color-games: #f54900;
-    /* orange-600 */
-    --dot-color-games: #f54900b3;
+    --primary-color-games: oklch(75% 0.183 55.934)
+        /* orange-600 */
+        --dot-color-games: oklch(64.6% 0.222 41.116);
 
     /* Movies – Example */
-    --primary-color-movies: #009966;
+    --primary-color-movies: oklch(76.5% 0.177 163.223);
     /* lime-500 */
-    --dot-color-movies: #009966b3;
+    --dot-color-movies: oklch(59.6% 0.145 163.225);
 }
 
 html {

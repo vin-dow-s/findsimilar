@@ -45,7 +45,33 @@ export const metadata: Metadata = {
     },
     metadataBase: new URL('https://www.findsimilar.app'),
     icons: {
-        icon: '/icons/favicon.ico',
+        icon: [
+            { url: '/icons/favicon.ico' },
+            { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+            { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+        ],
+        shortcut: '/icons/favicon.ico',
+        apple: '/icons/apple-touch-icon.png',
+        other: [
+            {
+                rel: 'apple-touch-icon',
+                url: '/icons/apple-touch-icon.png',
+                sizes: '180x180'
+            },
+            {
+                rel: 'mask-icon',
+                url: '/icons/favicon.ico',
+                color: '#1c1b22'
+            },
+            {
+                rel: 'manifest',
+                url: '/manifest.json'
+            },
+            {
+                rel: 'msapplication-config',
+                url: '/browserconfig.xml'
+            }
+        ]
     },
     robots: {
         index: true,

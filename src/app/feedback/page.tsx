@@ -28,7 +28,7 @@ const FeedbackPage = () => {
                 <iframe
                     title="Feedback for FindSimilar"
                     aria-label="FindSimilar Feedback Form"
-                    data-tally-src="https://tally.so/embed/3XN6B4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    data-tally-src="https://tally.so/embed/3jzj66?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                     loading="lazy"
                     width="100%"
                     height="500px"

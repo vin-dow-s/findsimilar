@@ -8,6 +8,8 @@ export const useSimilarBooks = (description: string) => {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
+        setSimilarBooks([])
+
         if (!description || description.length < 40) return
 
         const fetchSimilarBooks = async () => {
@@ -40,7 +42,7 @@ export const useSimilarBooks = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ description }),
             },
-            10000,
+            5000,
         )
 
         if (!response.ok) {
@@ -59,7 +61,7 @@ export const useSimilarBooks = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ titles }),
             },
-            10000,
+            5000,
         )
 
         if (!response.ok) {

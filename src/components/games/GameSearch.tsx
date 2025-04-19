@@ -21,6 +21,7 @@ export default function GameSearch() {
     )
 
     const handleSelectGame = (game: Game) => {
+        console.log("🚀 ~ handleSelectGame ~ game:", game)
         setGameTitle(game.name)
         setSelectedGame(game)
         setShowSuggestions(false)
@@ -52,7 +53,8 @@ export default function GameSearch() {
                         required
                         className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-orange-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-orange-600"
                         onBlur={() => {
-                            setTimeout(() => setShowSuggestions(false), 100)
+                            if (selectedGame)
+                                setShowSuggestions(false)
                         }}
                         onFocus={() => {
                             setShowSuggestions(true)
@@ -102,8 +104,14 @@ export default function GameSearch() {
                     {loadingSimilarGames ? (
                         <LoadingSkeleton />
                     ) : (
-                        similarGames.length > 0 && (
-                            <SimilarGames games={similarGames} />
+                        selectedGame && (
+                            similarGames.length > 0 ? (
+                                <SimilarGames games={similarGames} />
+                            ) : (
+                                <p className="text-gray-400 text-center">
+                                    No similar games found 🤔
+                                </p>
+                            )
                         )
                     )}
                 </div>

@@ -23,7 +23,7 @@ const SimilarMovies = ({ movies }: Props) => {
                 {movies.map((movie) => (
                     <li
                         key={movie.id}
-                        className="flex flex-col justify-center items-center self-baseline gap-2 max-sm:mb-16 p-8 w-full md:w-1/3"
+                        className="flex flex-col justify-center items-center self-start gap-2 max-sm:mb-16 p-8 w-full md:w-1/3"
                     >
                         <a
                             href={`https://www.themoviedb.org/movie/${movie.id}-${createSlug(movie.title)}`}

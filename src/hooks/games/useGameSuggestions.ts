@@ -7,6 +7,7 @@ export const useGameSuggestions = (gameTitle: string) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
+
     useEffect(() => {
         if (!gameTitle) {
             setSuggestions([])

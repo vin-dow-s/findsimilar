@@ -53,7 +53,8 @@ export default function BookSearch() {
                         required
                         className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-violet-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-violet-600"
                         onBlur={() => {
-                            setTimeout(() => setShowSuggestions(false), 100)
+                            if (selectedBook)
+                                setShowSuggestions(false)
                         }}
                         onFocus={() => {
                             setShowSuggestions(true)

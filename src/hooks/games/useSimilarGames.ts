@@ -7,7 +7,10 @@ export const useSimilarGames = (description: string) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
+
     useEffect(() => {
+        setSimilarGames([])
+
         if (!description || description.length < 40) return
 
         const fetchSimilarGames = async () => {
@@ -40,7 +43,7 @@ export const useSimilarGames = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ description }),
             },
-            10000,
+            5000,
         )
 
         if (!response.ok) {
@@ -59,7 +62,7 @@ export const useSimilarGames = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ titles }),
             },
-            10000,
+            5000,
         )
 
         if (!response.ok) {

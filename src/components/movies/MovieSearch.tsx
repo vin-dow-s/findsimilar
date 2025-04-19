@@ -52,7 +52,8 @@ export default function MovieSearch() {
                         required
                         className="flex-1 bg-[#2B2A33] px-6 py-3 border-gray-300 focus:border-emerald-600 rounded-l-md focus:outline-hidden focus:ring-2 focus:ring-emerald-600"
                         onBlur={() => {
-                            setTimeout(() => setShowSuggestions(false), 100)
+                            if (selectedMovie)
+                                setShowSuggestions(false)
                         }}
                         onFocus={() => {
                             setShowSuggestions(true)

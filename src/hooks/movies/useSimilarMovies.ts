@@ -8,6 +8,8 @@ export const useSimilarMovies = (description: string) => {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
+        setSimilarMovies([])
+
         if (!description || description.length < 40) {
             return
         }
@@ -50,7 +52,7 @@ export const useSimilarMovies = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ description }),
             },
-            10000,
+            5000,
         )
 
         if (!response.ok) {
@@ -71,7 +73,7 @@ export const useSimilarMovies = (description: string) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ titles }),
             },
-            10000,
+            5000,
         )
 
 

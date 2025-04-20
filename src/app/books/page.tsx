@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 const BooksPage = () => {
     return (
         <main className="flex flex-col flex-1 justify-between items-center w-full min-h-full">
-            <div className="top-2 left-2 z-20 fixed flex gap-2 text-sm">
-                <Link href="/" className="p-2 text-gray-400 hover:text-gray-300 transition-colors">← Back</Link>
+            <div className="top-0 left-0 z-20 fixed flex gap-2 bg-[#1c1b22] m-2 p-1 max-sm:border max-sm:border-gray-700 rounded-md w-fit text-sm">
+                <Link href="/" className="p-1 text-gray-400 hover:text-gray-300 transition-colors">← Back</Link>
             </div>
             <BookSearch />
             <div className="flex justify-center items-center mb-10 w-full">

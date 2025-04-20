@@ -9,6 +9,15 @@ type Props = {
 }
 
 const GameSuggestions = ({ suggestions, onSelect }: Props) => {
+    /**
+     * Convertit un timestamp Unix en année
+     */
+    const getYearFromTimestamp = (timestamp: number): string => {
+        if (!timestamp) return '';
+        // Convertir le timestamp (secondes) en millisecondes pour JavaScript Date
+        return new Date(timestamp * 1000).getFullYear().toString();
+    };
+
     return (
         <ul className="top-14 left-0 z-10 absolute bg-white shadow-lg border border-gray-300 rounded-md w-full">
             {suggestions.map((suggestion) => (
@@ -23,6 +32,11 @@ const GameSuggestions = ({ suggestions, onSelect }: Props) => {
                             style={{ maxWidth: '90%' }}
                         >
                             {suggestion.name}
+                            {suggestion.first_release_date && (
+                                <span className="ml-1 text-gray-500 text-sm">
+                                    ({getYearFromTimestamp(suggestion.first_release_date)})
+                                </span>
+                            )}
                         </span>
                     </div>
                     {suggestion.cover && (

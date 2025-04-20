@@ -9,12 +9,23 @@ type Props = {
 }
 
 const BookSuggestions = ({ suggestions, onSelect }: Props) => {
+    /**
+     * Extrait l'année de publication à partir du format de date de Google Books
+     * Format possible: YYYY ou YYYY-MM ou YYYY-MM-DD
+     */
+    const getPublishedYear = (publishedDate?: string): string => {
+        if (!publishedDate) return '';
+        // Extrait l'année (les 4 premiers caractères) de la date
+        const match = publishedDate.match(/^(\d{4})/);
+        return match ? match[1] : '';
+    };
+
     return (
-        <ul className="absolute top-14 left-0 z-10 w-full rounded-md border border-gray-300 bg-white shadow-lg">
+        <ul className="top-14 left-0 z-10 absolute bg-white shadow-lg border border-gray-300 rounded-md w-full">
             {suggestions.map((suggestion) => (
                 <li
                     key={suggestion.etag}
-                    className="flex h-16 cursor-pointer items-center justify-between border-b px-4 py-2 text-black last:border-b-0 hover:bg-gray-100"
+                    className="flex justify-between items-center hover:bg-gray-100 px-4 py-2 border-b last:border-b-0 h-16 text-black cursor-pointer"
                     onMouseDown={() => onSelect(suggestion)}
                 >
                     <div className="flex-1 truncate">
@@ -23,6 +34,11 @@ const BookSuggestions = ({ suggestions, onSelect }: Props) => {
                             style={{ maxWidth: '90%' }}
                         >
                             {suggestion.volumeInfo.title}
+                            {suggestion.volumeInfo.publishedDate && (
+                                <span className="ml-1 text-gray-500 text-sm">
+                                    ({getPublishedYear(suggestion.volumeInfo.publishedDate)})
+                                </span>
+                            )}
                         </span>
                     </div>
                     {suggestion.volumeInfo.imageLinks?.thumbnail && (

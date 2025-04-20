@@ -51,12 +51,14 @@ const SimilarGames = ({ games }: Props) => {
                                     {game.name}
                                 </h3>
                                 <p className="pt-1 text-gray-400 text-base">
-                                    {game?.genres?.slice(0, 3)
-                                        .map(
-                                            (genre: { name: string }) =>
-                                                genre.name,
-                                        )
-                                        .join(', ')}
+                                    {game?.genres ?
+                                        game?.genres?.slice(0, 3)
+                                            .map(
+                                                (genre: { name: string }) =>
+                                                    genre.name,
+                                            )
+                                            .join(', ') :
+                                        <span className='h-7'>-</span>}
                                 </p>
                                 <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}

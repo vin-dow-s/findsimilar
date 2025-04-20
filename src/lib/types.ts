@@ -2,6 +2,7 @@ export type VolumeInfo = {
     title: string
     description?: string
     authors?: string[]
+    publishedDate?: string
     infoLink?: string
     imageLinks?: {
         thumbnail?: string
@@ -17,6 +18,7 @@ export type Book = {
 export type Game = {
     id: number
     name: string
+    first_release_date: number
     summary?: string
     slug: string
     cover?: {

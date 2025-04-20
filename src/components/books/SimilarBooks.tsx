@@ -52,6 +52,7 @@ const SimilarBooks = ({ books }: Props) => {
                                 <p className="pt-1 text-gray-400 text-base">
                                     {book.volumeInfo?.authors?.[0] ??
                                         'Unknown author'}
+
                                 </p>
                                 <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
                                     {' '}

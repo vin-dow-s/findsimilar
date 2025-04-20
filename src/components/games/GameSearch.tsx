@@ -21,7 +21,6 @@ export default function GameSearch() {
     )
 
     const handleSelectGame = (game: Game) => {
-        console.log("🚀 ~ handleSelectGame ~ game:", game)
         setGameTitle(game.name)
         setSelectedGame(game)
         setShowSuggestions(false)

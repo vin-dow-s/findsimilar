@@ -14,24 +14,24 @@ const SimilarMovies = ({ movies }: Props) => {
             .replace(/[^\w\s-]/g, '')
             .replace(/\s+/g, '-')
             .replace(/--+/g, '-')
-            .trim();
+            .trim()
     }
 
     return (
-        <div className="mt-4 max-sm:mt-16 mb-6 w-full">
-            <ul className="flex max-sm:flex-wrap justify-center list-none">
+        <div className="mt-4 mb-6 w-full max-sm:mt-16">
+            <ul className="flex list-none justify-center max-sm:flex-wrap">
                 {movies.map((movie) => (
                     <li
                         key={movie.id}
-                        className="flex flex-col justify-center items-center self-start gap-2 max-sm:mb-16 p-8 w-full md:w-1/3"
+                        className="flex w-full flex-col items-center justify-center gap-2 self-start p-8 max-sm:mb-16 md:w-1/3"
                     >
                         <a
                             href={`https://www.themoviedb.org/movie/${movie.id}-${createSlug(movie.title)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col items-center w-full text-center"
+                            className="flex w-full flex-col items-center text-center"
                         >
-                            <div className="relative rounded-sm w-32 h-48 cursor-pointer">
+                            <div className="relative h-48 w-32 cursor-pointer rounded-sm">
                                 {movie.poster_path ? (
                                     <Image
                                         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -43,22 +43,22 @@ const SimilarMovies = ({ movies }: Props) => {
                                             width: '100%',
                                             height: '100%',
                                         }}
-                                        className="opacity-100 hover:opacity-50 rounded-sm transition-opacity duration-200 ease-in-out"
+                                        className="rounded-sm opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-50"
                                     />
                                 ) : (
-                                    <div className="flex justify-center items-center bg-gray-300 rounded-sm w-32 h-48">
+                                    <div className="flex h-48 w-32 items-center justify-center rounded-sm bg-gray-300">
                                         No image
                                     </div>
                                 )}
                             </div>
-                            <div className="content-center w-full text-center">
-                                <h3 className="mt-4 font-semibold text-2xl line-clamp-1">
+                            <div className="w-full content-center text-center">
+                                <h3 className="mt-4 line-clamp-1 text-2xl font-semibold">
                                     {movie.title}
                                 </h3>
-                                <p className="pt-1 text-gray-400 text-base">
+                                <p className="pt-1 text-base text-gray-400">
                                     {movie?.release_date?.substring(0, 4)}
                                 </p>
-                                <p className="pt-6 text-gray-500 text-sm text-left line-clamp-4">
+                                <p className="line-clamp-4 pt-6 text-left text-sm text-gray-500">
                                     {' '}
                                     {movie.overview ??
                                         'No description available.'}

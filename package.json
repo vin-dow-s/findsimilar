@@ -14,7 +14,7 @@
         "eslint-plugin-readable-tailwind": "^2.1.2",
         "eslint-plugin-tailwindcss": "^3.18.0",
         "next": "15.3.2",
-        "openai": "^4.100.0",
+        "openai": "^4.103.0",
         "prettier": "^3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "react": "^19.1.0",
@@ -25,11 +25,11 @@
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
         "@tailwindcss/postcss": "^4.1.7",
-        "@types/node": "^22.15.18",
-        "@types/react": "^19.1.4",
+        "@types/node": "^22.15.21",
+        "@types/react": "^19.1.5",
         "@types/react-dom": "^19.1.5",
         "eslint": "^9.27.0",
-        "eslint-config-next": "15.3.2",
+        "eslint-config-next": "15.4.0-canary.51",
         "tailwindcss": "^4.1.7",
         "typescript": "^5.8.3"
     }

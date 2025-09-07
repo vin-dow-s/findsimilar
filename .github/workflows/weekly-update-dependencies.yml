@@ -1,0 +1,32 @@
+name: Weekly Dependency Update
+
+on:
+  schedule:
+    - cron: "0 10 * * 0" # Tous les dimanches à 10h UTC
+  workflow_dispatch: # permet de lancer manuellement si tu veux
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Installe pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      # Installe les deps (important avant de mettre à jour)
+      - run: pnpm install
+
+      # Met à jour toutes les dépendances
+      - run: pnpm up --latest
+
+      # Commit + push si changements
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+      - run: |
+          git add .
+          git commit -m "chore: weekly deps update" || echo "No changes"
+          git push

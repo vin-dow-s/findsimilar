@@ -20,7 +20,6 @@ export async function GET(request: Request) {
     limit 20;
   `
 
-
     try {
         const res = await fetch('https://api.igdb.com/v4/games', {
             method: 'POST',
@@ -33,9 +32,13 @@ export async function GET(request: Request) {
         })
 
         if (!res.ok) {
+            const errorText = await res.text()
             return NextResponse.json(
-                { error: 'Failed to fetch suggestions from IGDB' },
-                { status: res.status }
+                {
+                    error: 'Failed to fetch suggestions from IGDB',
+                    details: errorText,
+                },
+                { status: res.status },
             )
         }
 
@@ -44,7 +47,10 @@ export async function GET(request: Request) {
         return NextResponse.json(sortedData.slice(0, 5))
     } catch (error) {
         console.error('Timeout or error fetching game suggestions:', error)
-        return NextResponse.json({ error: 'Request timed out or failed' }, { status: 500 })
+        return NextResponse.json(
+            { error: 'Request timed out or failed' },
+            { status: 500 },
+        )
     }
 }
 

@@ -3,7 +3,7 @@ name: Weekly Dependency Update
 on:
   schedule:
     - cron: "0 10 * * 0" # Tous les dimanches à 10h UTC
-  workflow_dispatch:
+  workflow_dispatch: 
 
 permissions:
   contents: write
@@ -14,6 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       # Installe pnpm
       - uses: pnpm/action-setup@v2
@@ -29,6 +32,11 @@ jobs:
       # Commit + push si changements
       - run: git config user.name "github-actions[bot]"
       - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - run: git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - run: git pull --rebase origin main || echo "No changes to rebase"
+
       - run: |
           git add .
           git commit -m "chore: weekly deps update" || echo "No changes"

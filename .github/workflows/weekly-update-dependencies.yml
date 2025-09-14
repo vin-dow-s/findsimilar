@@ -3,7 +3,10 @@ name: Weekly Dependency Update
 on:
   schedule:
     - cron: "0 10 * * 0" # Tous les dimanches à 10h UTC
-  workflow_dispatch: # permet de lancer manuellement si tu veux
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update-deps:

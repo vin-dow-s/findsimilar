@@ -12,24 +12,24 @@
         "@vercel/analytics": "^1.5.0",
         "clsx": "^2.1.1",
         "eslint-plugin-tailwindcss": "^3.18.2",
-        "next": "15.5.2",
-        "openai": "^5.19.1",
+        "next": "15.5.3",
+        "openai": "^5.20.2",
         "prettier": "^3.6.2",
         "prettier-plugin-tailwindcss": "^0.6.14",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
         "tailwind-merge": "^3.3.1",
-        "typescript-eslint": "^8.42.0"
+        "typescript-eslint": "^8.43.0"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
         "@tailwindcss/postcss": "^4.1.13",
-        "@types/node": "^24.3.1",
-        "@types/react": "^19.1.12",
+        "@types/node": "^24.4.0",
+        "@types/react": "^19.1.13",
         "@types/react-dom": "^19.1.9",
         "eslint": "^9.35.0",
-        "eslint-config-next": "15.5.2",
-        "eslint-plugin-better-tailwindcss": "^3.7.6",
+        "eslint-config-next": "15.5.3",
+        "eslint-plugin-better-tailwindcss": "^3.7.8",
         "tailwindcss": "^4.1.13",
         "typescript": "^5.9.2"
     }

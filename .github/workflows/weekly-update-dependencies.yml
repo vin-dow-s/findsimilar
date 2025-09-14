@@ -35,8 +35,6 @@ jobs:
 
       - run: git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - run: git pull --rebase origin main || echo "No changes to rebase"
-
       - run: |
           git add .
           git commit -m "chore: weekly deps update" || echo "No changes"

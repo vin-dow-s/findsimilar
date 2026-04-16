@@ -34,7 +34,7 @@ export default function HomePage() {
                 </p>
             </div>
 
-            <div className="flex justify-center items-center mb-10 w-full">
+            {/*             <div className="flex justify-center items-center mb-10 w-full">
                 <p className="flex md:flex-row flex-col justify-center text-gray-400 text-sm text-center">
                     Help shape the next version
                     <span className="max-md:hidden mx-1"> - </span>
@@ -42,7 +42,7 @@ export default function HomePage() {
                         Get early access & launch offer →
                     </Link>
                 </p>
-            </div>
+            </div> */}
         </main>
     )
 }

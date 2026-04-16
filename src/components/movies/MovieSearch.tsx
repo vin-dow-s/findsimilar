@@ -2,10 +2,12 @@
 
 import { useMovieSuggestions } from '@/hooks/movies/useMovieSuggestions'
 import { useSimilarMovies } from '@/hooks/movies/useSimilarMovies'
+import { useSearchHistory } from '@/hooks/useSearchHistory'
 import { Movie } from '@/lib/types'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import LoadingSkeleton from '../LoadingSkeleton'
+import RecentSearches from '../RecentSearches'
 import MovieSuggestions from './MovieSuggestions'
 import SimilarMovies from './SimilarMovies'
 
@@ -21,12 +23,21 @@ export default function MovieSearch() {
     const { similarMovies, loading: loadingSimilarMovies } = useSimilarMovies(
         selectedMovie?.overview || '',
     )
+    const { history, add, clear } = useSearchHistory<Movie>(
+        'findsimilar:history:movies',
+    )
 
     const handleSelectMovie = (movie: Movie) => {
         setMovieTitle(movie.title)
         setSelectedMovie(movie)
         setShowSuggestions(false)
+        add(movie, (a, b) => a.id === b.id)
     }
+
+    const showRecents =
+        !loadingSimilarMovies &&
+        similarMovies.length === 0 &&
+        history.length > 0
 
     return (
         <div
@@ -150,11 +161,27 @@ export default function MovieSearch() {
                 <div className="w-full max-w-[1500px]">
                     {loadingSimilarMovies ? (
                         <LoadingSkeleton />
-                    ) : (
-                        similarMovies.length > 0 && (
-                            <SimilarMovies movies={similarMovies} />
-                        )
-                    )}
+                    ) : similarMovies.length > 0 ? (
+                        <SimilarMovies movies={similarMovies} />
+                    ) : showRecents ? (
+                        <RecentSearches
+                            accentClassName="text-emerald-400"
+                            items={history.map((m) => ({
+                                key: String(m.id),
+                                label: m.title,
+                                thumbnail: m.poster_path
+                                    ? `https://image.tmdb.org/t/p/w92${m.poster_path}`
+                                    : null,
+                            }))}
+                            onSelect={(key) => {
+                                const found = history.find(
+                                    (m) => String(m.id) === key,
+                                )
+                                if (found) handleSelectMovie(found)
+                            }}
+                            onClear={clear}
+                        />
+                    ) : null}
                 </div>
             </div>
         </div>

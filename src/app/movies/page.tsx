@@ -32,7 +32,7 @@ const MoviesPage = () => {
                 <Link href="/" className="p-1 text-gray-400 hover:text-gray-300 transition-colors">← Back</Link>
             </div>
             <MovieSearch />
-            <div className="flex justify-center items-center mb-10 w-full">
+            {/*             <div className="flex justify-center items-center mb-10 w-full">
                 <p className="flex md:flex-row flex-col justify-center text-gray-400 text-sm text-center">
                     Help shape the next version
                     <span className="max-md:hidden mx-1"> - </span>
@@ -40,7 +40,7 @@ const MoviesPage = () => {
                         Get early access & launch offer →
                     </a>
                 </p>
-            </div>
+            </div> */}
             <a
                 href="https://www.themoviedb.org/"
                 target="_blank"

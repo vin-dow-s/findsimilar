@@ -1,3 +1,4 @@
+import DomainForSaleBanner from '@/components/DomainForSaleBanner'
 import Footer from '@/components/Footer'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/react'
@@ -109,6 +110,7 @@ export default function RootLayout({
             )}
         >
             <body className="flex flex-col min-h-dvh antialiased">
+                <DomainForSaleBanner />
                 {children}
                 <Analytics />
                 <Footer />

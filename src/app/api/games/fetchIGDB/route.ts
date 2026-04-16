@@ -1,11 +1,26 @@
 import { NextResponse } from 'next/server'
+import { fetchWithServerTimeout } from '@/lib/fetchWithServerTimeout'
+
+const MAX_TITLES = 5
+const MAX_TITLE_LEN = 200
 
 export async function POST(req: Request) {
-    const { titles } = await req.json()
+    let body: unknown
+    try {
+        body = await req.json()
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
+    }
 
-    if (!Array.isArray(titles) || titles.length === 0) {
+    const titles = (body as { titles?: unknown })?.titles
+    if (
+        !Array.isArray(titles) ||
+        titles.length === 0 ||
+        titles.length > MAX_TITLES ||
+        !titles.every((t) => typeof t === 'string' && t.length > 0 && t.length <= MAX_TITLE_LEN)
+    ) {
         return NextResponse.json(
-            { error: 'No titles provided' },
+            { error: `titles must be an array of 1–${MAX_TITLES} strings (max ${MAX_TITLE_LEN} chars each)` },
             { status: 400 },
         )
     }
@@ -19,19 +34,24 @@ export async function POST(req: Request) {
     }
 
     const games = await Promise.all(
-        titles.map(async (title: string) => {
+        (titles as string[]).map(async (title) => {
             try {
-                const query = `search "${title}"; fields name, slug, cover.url, genres.name, platforms.name, summary; limit 1;`
+                const escaped = title.replace(/"/g, '\\"')
+                const query = `search "${escaped}"; fields name, slug, cover.url, genres.name, platforms.name, summary; limit 1;`
 
-                const res = await fetch('https://api.igdb.com/v4/games', {
-                    method: 'POST',
-                    headers: {
-                        'Client-ID': clientId,
-                        Authorization: `Bearer ${accessToken}`,
-                        'Content-Type': 'text/plain',
+                const res = await fetchWithServerTimeout(
+                    'https://api.igdb.com/v4/games',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Client-ID': clientId,
+                            Authorization: `Bearer ${accessToken}`,
+                            'Content-Type': 'text/plain',
+                        },
+                        body: query,
                     },
-                    body: query,
-                })
+                    8000,
+                )
 
                 const data = await res.json()
                 return data?.[0] || null

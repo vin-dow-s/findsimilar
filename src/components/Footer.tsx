@@ -1,9 +1,9 @@
 const Footer = () => {
     return (
-        <footer className="mb-2 flex items-center justify-center text-sm text-gray-400">
-            © 2025- by{' '}
+        <footer className="flex justify-center items-center mb-2 text-gray-400 text-sm">
+            © 2026- by{' '}
             <a href="mailto:vincent@vindows.dev" className="italic">
-                Vindows.
+                Vynse.
             </a>
         </footer>
     )

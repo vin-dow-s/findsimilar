@@ -2,10 +2,12 @@
 
 import { useBookSuggestions } from '@/hooks/books/useBookSuggestions'
 import { useSimilarBooks } from '@/hooks/books/useSimilarBooks'
+import { useSearchHistory } from '@/hooks/useSearchHistory'
 import { Book } from '@/lib/types'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import LoadingSkeleton from '../LoadingSkeleton'
+import RecentSearches from '../RecentSearches'
 import BookSuggestions from './BookSuggestions'
 import SimilarBooks from './SimilarBooks'
 
@@ -21,12 +23,21 @@ export default function BookSearch() {
     const { similarBooks, loading: loadingSimilarBooks } = useSimilarBooks(
         selectedBook?.volumeInfo?.description || '',
     )
+    const { history, add, clear } = useSearchHistory<Book>(
+        'findsimilar:history:books',
+    )
 
     const handleSelectBook = (book: Book) => {
         setBookTitle(book.volumeInfo.title)
         setSelectedBook(book)
         setShowSuggestions(false)
+        add(book, (a, b) =>
+            a.id ? a.id === b.id : a.volumeInfo.title === b.volumeInfo.title,
+        )
     }
+
+    const showRecents =
+        !loadingSimilarBooks && similarBooks.length === 0 && history.length > 0
 
     return (
         <div
@@ -152,11 +163,26 @@ export default function BookSearch() {
                 <div className="w-full max-w-[1500px]">
                     {loadingSimilarBooks ? (
                         <LoadingSkeleton />
-                    ) : (
-                        similarBooks.length > 0 && (
-                            <SimilarBooks books={similarBooks} />
-                        )
-                    )}
+                    ) : similarBooks.length > 0 ? (
+                        <SimilarBooks books={similarBooks} />
+                    ) : showRecents ? (
+                        <RecentSearches
+                            accentClassName="text-violet-400"
+                            items={history.map((b) => ({
+                                key: b.id || b.volumeInfo.title,
+                                label: b.volumeInfo.title,
+                                thumbnail: b.volumeInfo.imageLinks?.thumbnail,
+                            }))}
+                            onSelect={(key) => {
+                                const found = history.find(
+                                    (b) =>
+                                        (b.id || b.volumeInfo.title) === key,
+                                )
+                                if (found) handleSelectBook(found)
+                            }}
+                            onClear={clear}
+                        />
+                    ) : null}
                 </div>
             </div>
         </div>

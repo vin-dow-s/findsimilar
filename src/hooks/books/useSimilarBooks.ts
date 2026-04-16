@@ -10,7 +10,7 @@ export const useSimilarBooks = (description: string) => {
     useEffect(() => {
         setSimilarBooks([])
 
-        if (!description || description.length < 40) return
+        if (!description || description.length < 20) return
 
         const fetchSimilarBooks = async () => {
             setLoading(true)

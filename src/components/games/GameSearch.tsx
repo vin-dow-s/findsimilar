@@ -2,10 +2,12 @@
 
 import { useGameSuggestions } from '@/hooks/games/useGameSuggestions'
 import { useSimilarGames } from '@/hooks/games/useSimilarGames'
+import { useSearchHistory } from '@/hooks/useSearchHistory'
 import { Game } from '@/lib/types'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import LoadingSkeleton from '../LoadingSkeleton'
+import RecentSearches from '../RecentSearches'
 import GameSuggestions from './GameSuggestions'
 import SimilarGames from './SimilarGames'
 
@@ -21,12 +23,21 @@ export default function GameSearch() {
     const { similarGames, loading: loadingSimilarGames } = useSimilarGames(
         selectedGame?.summary || '',
     )
+    const { history, add, clear } = useSearchHistory<Game>(
+        'findsimilar:history:games',
+    )
 
     const handleSelectGame = (game: Game) => {
         setGameTitle(game.name)
         setSelectedGame(game)
         setShowSuggestions(false)
+        add(game, (a, b) => a.id === b.id)
     }
+
+    const showRecents =
+        !loadingSimilarGames &&
+        !selectedGame &&
+        history.length > 0
 
     return (
         <div
@@ -153,16 +164,35 @@ export default function GameSearch() {
                 <div className="w-full max-w-[1500px]">
                     {loadingSimilarGames ? (
                         <LoadingSkeleton />
-                    ) : (
-                        selectedGame &&
-                        (similarGames.length > 0 ? (
+                    ) : selectedGame ? (
+                        similarGames.length > 0 ? (
                             <SimilarGames games={similarGames} />
                         ) : (
                             <p className="text-center text-gray-400">
                                 No similar games found 🤔
                             </p>
-                        ))
-                    )}
+                        )
+                    ) : showRecents ? (
+                        <RecentSearches
+                            accentClassName="text-orange-400"
+                            items={history.map((g) => ({
+                                key: String(g.id),
+                                label: g.name,
+                                thumbnail: g.cover?.url
+                                    ? g.cover.url.startsWith('//')
+                                        ? `https:${g.cover.url}`
+                                        : g.cover.url
+                                    : null,
+                            }))}
+                            onSelect={(key) => {
+                                const found = history.find(
+                                    (g) => String(g.id) === key,
+                                )
+                                if (found) handleSelectGame(found)
+                            }}
+                            onClear={clear}
+                        />
+                    ) : null}
                 </div>
             </div>
         </div>

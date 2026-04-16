@@ -42,8 +42,9 @@ export async function GET(request: Request) {
         )
 
         if (!res.ok) {
+            const details = await res.text()
             return NextResponse.json(
-                { error: 'Failed to fetch suggestions from IGDB' },
+                { error: 'Failed to fetch suggestions from IGDB', details },
                 { status: res.status },
             )
         }
